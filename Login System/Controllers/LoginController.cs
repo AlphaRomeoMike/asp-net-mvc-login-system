@@ -22,9 +22,8 @@ namespace Login_System.Controllers
 
             if(user != null)
             {
-                Session["UserId"] = u.Id.ToString();
-                //Session["UserName"] = u.Firstname.ToString();
-                Session["User"] = u.Id.ToString();
+                Session["UserId"] = user.Id.ToString();
+                Session["UserName"] = user.Firstname.ToString() + user.Lastname.ToString();
                 TempData["Login"] = "<p class=\"alert alert-success\">Login successful</p>";
                 return RedirectToAction("Index", "User");
             }

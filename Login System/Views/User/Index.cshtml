@@ -4,7 +4,18 @@
 }
 
 @Html.Raw(TempData["Login"])
-@Html.Raw(Session["UserId"])
 
 <h2>Index</h2>
 
+<div class="card">
+
+    <div class="card-header">
+        <h3>User Details</h3>
+    </div>
+    <div class="card-body">
+        <p>The Username is: <b>@Session["Username"]</b></p>
+    </div>
+
+</div>
+<br />
+@Html.ActionLink("Logout", "Logout", "User", null, new { @class = "btn btn-outline-danger" })
