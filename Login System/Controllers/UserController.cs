@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login_System.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,22 @@ namespace Login_System.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        //Get: Logout
+        public ActionResult Logout()
+        {
+            Session.Contents.RemoveAll();
+            Session.Abandon();
+            TempData["Logout"] = "<p class=\"alert alert-warning\">User has been logged out</p>";
+            return RedirectToAction("Index", "Login");
         }
     }
 }

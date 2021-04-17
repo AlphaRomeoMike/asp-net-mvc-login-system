@@ -16,7 +16,7 @@ namespace Login_System
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Login", action = "Signup", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
